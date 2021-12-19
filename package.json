@@ -4,11 +4,10 @@
   "description": "CLI tool for setting up development environment",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint src --fix",
+    "build": "npm run lint && webpack",
     "dev": "nodemon --exec babel-node src/index.js",
     "start": "node dist/index.js",
-    "lint": "eslint src --fix",
-    "prebuild": "npm run lint",
-    "build": "webpack",
     "test": "jest"
   },
   "keywords": [],
@@ -35,7 +34,14 @@
     "jest": "^27.4.5",
     "nodemon": "^2.0.15",
     "webpack": "^5.65.0",
-    "webpack-cli": "^4.9.1"
+    "webpack-cli": "^4.9.1",
+    "webpack-shebang-plugin": "^1.1.7"
+  },
+  "files": [
+    "dist"
+  ],
+  "bin": {
+    "acScripts": "./dist/index.js"
   },
   "babel": {
     "presets": [

@@ -1,7 +1,9 @@
 const path = require('path');
+const ShebangPlugin = require('webpack-shebang-plugin');
 
 module.exports = {
   mode: 'production',
+  devtool: 'eval',
   target: 'node',
   entry: './src/index.js',
   output: {
@@ -9,6 +11,7 @@ module.exports = {
     filename: 'index.js',
     clean: true,
   },
+  plugins: [new ShebangPlugin()],
   module: {
     rules: [
       {
